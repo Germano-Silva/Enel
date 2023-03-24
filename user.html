@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Página do Usuário</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#">Página do Usuário</a>
+        <div class="navbar-text text-light">
+          <span id="username"></span>
+          <a href="index.html" class="btn btn-light ml-3">Sair</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-header">
+              TMA do dia
+            </div>
+            <div class="card-body">
+              <span id="tma-dia"></span>
+              <span id="tma-dia-icon"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-header">
+              TMA do mês
+            </div>
+            <div class="card-body">
+              <span id="tma-mes"></span>
+              <span id="tma-mes-icon"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-header">
+              Ligações atendidas
+            </div>
+            <div class="card-body">
+              <span id="ligacoes"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-header">
+              Tempo total em atendimento
+            </div>
+            <div class="card-body">
+              <span id="tempo"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+          TMA evolução
+        </div>
+        <div class="card-body">
+          <canvas id="graficoTMA"></canvas>
+        </div>
+      </div>
+      <h1>Indicadores</h1>
+      <table>
+        <tr>
+          <th></th>
+          <th>Peru</th>
+          <th>Chile</th>
+          <th>Brazil</th>
+          <th>Colombia</th>
+          <th>Mexico</th>
+          <th>Central America</th>
+          <th>Argentina</th>
+        </tr>
+        <tr>
+          <td>User 3%</td>
+          <td id="cel21"></td>
+          <td id="cel22"></td>
+          <td id="cel23"></td>
+          <td id="cel24"></td>
+          <td id="cel25"></td>
+          <td id="cel26"></td>
+          <td id="cel27"></td>
+        </tr>
+        <tr>
+          <td>User 30s</td>
+          <td id="cel31"></td>
+          <td id="cel32"></td>
+          <td id="cel33"></td>
+          <td id="cel34"></td>
+          <td id="cel35"></td>
+          <td id="cel36"></td>
+          <td id="cel37"></td>
+        </tr>
+        <tr>
+          <td>User 45s</td>
+          <td id="cel41"></td>
+          <td id="cel42"></td>
+          <td id="cel43"></td>
+          <td id="cel44"></td>
+          <td id="cel45"></td>
+          <td id="cel46"></td>
+          <td id="cel47"></td>
+        </tr>
+        <tr>
+          <td>Vip 2%</td>
+          <td id="cel51"></td>
+          <td id="cel52"></td>
+          <td id="cel53"></td>
+          <td id="cel54"></td>
+          <td id="cel55"></td>
+          <td id="cel56"></td>
+          <td id="cel57"></td>
+        </tr>
+        <tr>
+          <td>Vip 20s</td>
+          <td id="cel61"></td>
+          <td id="cel62"></td>
+          <td id="cel63"></td>
+          <td id="cel64"></td>
+          <td id="cel65"></td>
+          <td id="cel66"></td>
+          <td id="cel67"></td>
+        </tr>
+        <tr>
+            <td>Vip 20s</td>
+            <td id="cel71"></td>
+            <td id="cel72"></td>
+            <td id="cel73"></td>
+            <td id="cel74"></td>
+            <td id="cel75"></td>
+            <td id="cel76"></td>
+            <td id="cel77"></td>
+          </tr>
+      </table>
+
+      <!-- Card "First Call Resolution" -->
+<div class="card">
+    <div class="card-header">
+      <h2>First Call Resolution</h2>
+    </div>
+    <div class="card-body">
+      <ul id="fcr-list">
+        <!-- Dados da Página5 da planilha -->
+      </ul>
+    </div>
+  </div>
+
+  
+    <script src="user.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+  </body>
+</html>
