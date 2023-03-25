@@ -1,0 +1,93 @@
+.container {
+    margin: 0 auto;
+    width: 300px;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-top: 30px;
+  }
+  
+  form {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  label, input, button {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  
+  #error {
+    color: red;
+    margin-top: 20px;
+  }
+  
+
+  /*CARDE PARA TEMPO TOTAL DE ATENDIMENTO */
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card h2 {
+    margin-top: 0;
+  }
+  
+  #tempoTotal {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 16px;
+  }
+  
+
+  /*GRAFICO EVOLUÇÃO TMA*/
+  
+  .card {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+}
+
+canvas {
+  width: 100%;
+  height: 300px;
+}
+
+/* Estilo da navbar */
+.navbar {
+  background-color: #333; /* cor de fundo da navbar */
+  color: white; /* cor do texto da navbar */
+  position: fixed; /* navbar fixa no topo da página */
+  width: 100%; /* largura da navbar */
+  top: 0; /* distância do topo da página */
+  z-index: 999; /* prioridade de camadas, para ficar sobre os outros elementos */
+}
+
+/* Estilo do botão de sair */
+#sair-btn {
+  background-color: red; /* cor de fundo do botão */
+  color: white; /* cor do texto do botão */
+  border: none; /* remover borda */
+  padding: 10px 20px; /* espaçamento interno do botão */
+  font-size: 16px; /* tamanho da fonte do botão */
+  cursor: pointer; /* mudar cursor ao passar por cima */
+  float: right; /* alinhar à direita da navbar */
+  margin-right: 20px; /* margem direita */
+}
+
+/* Estilo do texto de login na navbar */
+#login-info {
+  float: right; /* alinhar à direita da navbar */
+  margin-right: 20px; /* margem direita */
+}
