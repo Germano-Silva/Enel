@@ -4,6 +4,9 @@
   <title>Usuário</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="user.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
   <div id="header">
@@ -43,6 +46,45 @@
     <div class="liga-saintes-valor"></div>
   </div>
   
+
+
+
+  <!--TMA do mês-->
+  <div class="card">
+    <h2>TMA do mês</h2>
+    <div class="tma-mes-valor"></div>
+    <div class="tma-mes-icone"></div>
+  </div>
+  
+  <div class="card">
+    <h3>Ligações atendidas do mês</h3>
+    <div class="ligacoes-mes-valor"></div>
+  </div>
+
+  <div class="card">
+    <h3>Ligações saintes do mês</h3>
+    <div class="saintes-mes-valor"></div>
+  </div>
+  
+  <div class="card">
+    <h3>Tempo em atendimento do mês</h3>
+    <div class="tempo-mes-valor"></div>
+  </div>
+
+  <div class="card">
+    <h3>Tempo total em ligações saintes no mês</h3>
+    <div class="liga-saintes-mes-valor"></div>
+  </div>
+
+
+
+  <!--GRAFICO TMA-->
+  <div id="card-tma">
+    <!-- O gráfico será adicionado aqui pela função enviarGraficoParaCard() -->
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
   <script src="user.js"></script>
 </body>
 </html>

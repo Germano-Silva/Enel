@@ -175,5 +175,161 @@ fetch(url2)
 
   });
 
+//===========================================================
 
-  
+
+const url3 = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDrMhGzfj_Bja0Z-o68AgF2U_1bSum06dUcwmnnTovwQhLkI7JBf1O56GU_fpUl-Bb55sbbV61Mw2o/pubhtml?gid=1583042113&single=true';
+
+
+//Ligações atendidas
+
+// Obtém os dados da planilha
+const coluna6 = 'B';
+
+fetch(url3)
+  .then(response => response.text())
+  .then(data => {
+    // Extrai os dados da coluna C para um array
+    const tabela = new DOMParser().parseFromString(data, 'text/html').querySelector('table');
+    const linhas = tabela.querySelectorAll('tr');
+    const valores = [];
+    for (let i = 1; i < linhas.length; i++) {
+      const colunas = linhas[i].querySelectorAll('td');
+      if (colunas[0].textContent === email) {
+        valores.push(colunas[1].textContent);
+      }
+    }
+
+    // Calcula a média dos valores e exibe na página
+    const valorMedio = valores.reduce((total, valor) => total + parseFloat(valor), 0) / valores.length;
+    const valorElement = document.querySelector('.ligacoes-mes-valor');
+    valorElement.textContent = `${valorMedio.toFixed(0)}`;
+
+  });
+
+//Tempo Total em atendimento
+
+// Obtém os dados da planilha
+const coluna7 = 'C';
+
+fetch(url3)
+  .then(response => response.text())
+  .then(data => {
+    // Extrai os dados da coluna C para um array
+    const tabela = new DOMParser().parseFromString(data, 'text/html').querySelector('table');
+    const linhas = tabela.querySelectorAll('tr');
+    const valores = [];
+    for (let i = 1; i < linhas.length; i++) {
+      const colunas = linhas[i].querySelectorAll('td');
+      if (colunas[0].textContent === email) {
+        valores.push(colunas[2].textContent);
+      }
+    }
+
+    // Calcula a média dos valores e exibe na página
+    const valorMedio = valores.reduce((total) => total);
+    const valorElement = document.querySelector('.tempo-mes-valor');
+    //precisa achar um jeito para converter para formato de hora
+    valorElement.textContent = `${valorMedio}`;
+
+  });
+
+//TMA do dia anterior
+const coluna8 = 'D';
+
+fetch(url3)
+  .then(response => response.text())
+  .then(data => {
+    // Extrai os dados da coluna B para um array
+    const tabela = new DOMParser().parseFromString(data, 'text/html').querySelector('table');
+    const linhas = tabela.querySelectorAll('tr');
+    const valores = [];
+    for (let i = 1; i < linhas.length; i++) {
+      const colunas = linhas[i].querySelectorAll('td');
+      if (colunas[0].textContent === email) {
+        valores.push(colunas[3].textContent);
+      }
+    }
+
+    // Calcula a média dos valores e exibe na página
+    const valorMedio = valores.reduce((total) => total);
+    const valorElement = document.querySelector('.tma-mes-valor');
+    //precisa achar um jeito para converter para formato de hora
+    valorElement.textContent = ` ${valorMedio}`;
+
+    // Exibe o ícone de acordo com o valor médio
+    const iconeElement = document.querySelector('.tma-mes-icone');
+    
+
+    const tempoString = valorMedio;
+    const [minutosStr, segundosStr] = tempoString.split(":");
+    const minutos = parseInt(minutosStr);
+    const segundos = parseFloat(segundosStr) / 60;
+    const tempoTotal = minutos + segundos;
+
+    if (tempoTotal < 10) {
+      iconeElement.textContent = "✔";
+    } else {
+      iconeElement.textContent = "❗";
+    }
+  });
+
+
+//Ligações saintes
+
+// Obtém os dados da planilha
+const coluna9 = 'E';
+
+fetch(url3)
+  .then(response => response.text())
+  .then(data => {
+    // Extrai os dados da coluna C para um array
+    const tabela = new DOMParser().parseFromString(data, 'text/html').querySelector('table');
+    const linhas = tabela.querySelectorAll('tr');
+    const valores = [];
+    for (let i = 1; i < linhas.length; i++) {
+      const colunas = linhas[i].querySelectorAll('td');
+      if (colunas[0].textContent === email) {
+        valores.push(colunas[4].textContent);
+      }
+    }
+
+    // Calcula a média dos valores e exibe na página
+    const valorMedio = valores.reduce((total) => total);
+    const valorElement = document.querySelector('.saintes-mes-valor');
+    valorElement.textContent = `${valorMedio}`;
+
+  });
+
+
+//Tempo total em ligações saintes
+
+// Obtém os dados da planilha
+const coluna10 = 'F';
+
+fetch(url3)
+  .then(response => response.text())
+  .then(data => {
+    // Extrai os dados da coluna C para um array
+    const tabela = new DOMParser().parseFromString(data, 'text/html').querySelector('table');
+    const linhas = tabela.querySelectorAll('tr');
+    const valores = [];
+    for (let i = 1; i < linhas.length; i++) {
+      const colunas = linhas[i].querySelectorAll('td');
+      if (colunas[0].textContent === email) {
+        valores.push(colunas[5].textContent);
+      }
+    }
+
+    // Calcula a média dos valores e exibe na página
+    const valorMedio = valores.reduce((total) => total);
+    const valorElement = document.querySelector('.liga-saintes-mes-valor');
+    valorElement.textContent = `${valorMedio}`;
+
+  });
+
+//=============================================================================================
+
+
+//Grafico TMA
+
