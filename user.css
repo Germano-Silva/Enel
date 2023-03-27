@@ -11,3 +11,41 @@
   .title {
     margin-top: 0;
   }
+
+  .grafico {
+    width: 600px;
+    height: 300px;
+    border: 1px solid #000;
+    margin: 50px auto;
+    position: relative;
+  }
+  
+  .grafico-colunas {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 100%;
+  }
+  
+  .coluna {
+    width: 50px;
+    background-color: yellow;
+    border: 1px solid #000;
+    margin-right: 10px;
+    position: relative;
+  }
+  
+  .dado {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .coluna:nth-child(1) { background-color: red; }
+  .coluna:nth-child(2) { background-color: green; }
+  .coluna:nth-child(3) { background-color: yellow; }
+  .coluna:nth-child(4) { background-color: green; }
+  .coluna:nth-child(5) { background-color: red; }
+  

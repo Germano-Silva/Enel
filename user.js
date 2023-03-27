@@ -333,3 +333,84 @@ fetch(url3)
 
 //Grafico TMA
 
+//const email = 'germano'; // Substitua com o endereço de e-mail do usuário logado
+
+const url4 = ("https://docs.google.com/spreadsheets/d/e/2PACX-1vQDrMhGzfj_Bja0Z-o68AgF2U_1bSum06dUcwmnnTovwQhLkI7JBf1O56GU_fpUl-Bb55sbbV61Mw2o/pubhtml?gid=1610093043&single=true");
+
+fetch(url4)
+  .then(response => response.text())
+  .then(data => {
+    // Extrai os dados da coluna C para um array
+    const tabela = new DOMParser().parseFromString(data, 'text/html').querySelector('table');
+    const linhas = tabela.querySelectorAll('tr');
+    const valores = [];
+    for (let i = 1; i < linhas.length; i++) {
+      const colunas = linhas[i].querySelectorAll('td');
+      if (colunas[0].textContent === email) {
+        for (let j = 1; j < colunas.length; j++) {
+            valores.push(colunas[j].textContent);
+        }
+      }
+    }
+    console.log(valores);
+
+    // Converte os valores para minutos e segundos
+    const temposFormatados = converterTempo(valores);
+    console.log(temposFormatados);
+
+    // Converte os valores para float
+    const temposFloat = converterFloat(temposFormatados);
+    console.log(temposFloat);
+
+    // Cria o gráfico de colunas
+    criarGraficoColunas(temposFloat, temposFormatados);
+  });
+
+function converterTempo(valores) {
+  const tempos = [];
+  valores.forEach(valor => {
+    const tempoData = new Date(`January 1, 2000 ${valor}`);
+    const minutos = tempoData.getMinutes();
+    const segundos = tempoData.getSeconds();
+    const tempoFormatado = `${("0" + minutos).slice(-2)}:${("0" + segundos).slice(-2)}`;
+    tempos.push(tempoFormatado);
+  });
+  return tempos;
+}
+
+function converterFloat(tempoFormatados) {
+  const temposFloat = [];
+  tempoFormatados.forEach(tempo => {
+    const tempoFloat = parseFloat(tempo.replace(':', '.'));
+    temposFloat.push(tempoFloat);
+  });
+  return temposFloat;
+}
+
+function criarGraficoColunas(temposFloat, temposFormatados) {
+  google.charts.load('current', {'packages':['corechart']}); // Carrega a biblioteca do Google Charts
+
+  google.charts.setOnLoadCallback(function() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Tempo');
+    data.addColumn('number', 'Tempo (segundos)');
+    data.addColumn({type: 'string', role: 'style'}); // adiciona coluna de estilo para as cores
+
+    for (var i = 0; i < temposFloat.length; i++) {
+      const cor = (temposFloat[i] >= 10.0) ? 'color: red;' : (temposFloat[i] < 8.0) ? 'color: green;' : 'color: blue;'; // define a cor com base no tempo
+      data.addRow([temposFormatados[i], temposFloat[i], cor]);
+    }
+
+    var options = {
+      title: 'TMA mensal',
+      hAxis: {title: 'TMA', titleTextStyle: {color: '#333'}},
+      vAxis: {minValue: 0},
+      bars: 'vertical',
+      height: 400
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('grafico-colunas')); // Cria um gráfico de colunas
+
+    chart.draw(data, options); // Desenha o gráfico na página HTML
+  });
+}
