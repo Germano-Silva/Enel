@@ -414,3 +414,101 @@ function criarGraficoColunas(temposFloat, temposFormatados) {
     chart.draw(data, options); // Desenha o gráfico na página HTML
   });
 }
+
+
+//================================================================
+
+//indicadores
+
+const pagina4 =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQDrMhGzfj_Bja0Z-o68AgF2U_1bSum06dUcwmnnTovwQhLkI7JBf1O56GU_fpUl-Bb55sbbV61Mw2o/pub?gid=2118668185&single=true&output=tsv";
+let indicadores = [];
+
+fetch(pagina4)
+    .then((response) => response.text())
+    .then((data) => {
+        const colunas = data.split("\n");
+
+        for (let i = 0; i < colunas.length; i++) {
+            const linhas = colunas[i].split("\t");
+            indicadores.push(linhas);
+        }
+
+        for (var i = 0; i < indicadores.length; i++) {
+            document.getElementById("paises").innerHTML +=
+                "<th>" + indicadores[0][i] + "</th>";
+        }
+        for (var i = 0; i < indicadores.length; i++) {
+            document.getElementById("linha1").innerHTML +=
+                "<td>" + indicadores[1][i] + "</td>";
+        }
+        for (var i = 0; i < indicadores.length; i++) {
+            document.getElementById("linha2").innerHTML +=
+                "<td>" + indicadores[2][i] + "</td>";
+        }
+        for (var i = 0; i < indicadores.length; i++) {
+            document.getElementById("linha3").innerHTML +=
+                "<td>" + indicadores[3][i] + "</td>";
+        }
+        for (var i = 0; i < indicadores.length; i++) {
+            document.getElementById("linha4").innerHTML +=
+                "<td>" + indicadores[4][i] + "</td>";
+        }
+        for (var i = 0; i < indicadores.length; i++) {
+            document.getElementById("linha5").innerHTML +=
+                "<td>" + indicadores[5][i] + "</td>";
+        }
+        for (var i = 0; i < indicadores.length; i++) {
+            document.getElementById("linha6").innerHTML +=
+                "<td>" + indicadores[6][i] + "</td>";
+        }
+    });
+
+
+const pagina5 =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQDrMhGzfj_Bja0Z-o68AgF2U_1bSum06dUcwmnnTovwQhLkI7JBf1O56GU_fpUl-Bb55sbbV61Mw2o/pub?gid=381885766&single=true&output=tsv";
+
+let resolution = [];
+
+fetch(pagina5)
+    .then((response) => response.text())
+    .then((data) => {
+        const rows = data.split("\n");
+        rows.forEach((row) => {
+            const cells = row.split("\t");
+            resolution.push(cells);
+        });
+        console.log(resolution);
+        for (var i = 0; i < resolution.length; i++) {
+            document.getElementById("meses").innerHTML +=
+                "<th>" + resolution[0][i] + "</th>";
+        }
+        for (var i = 0; i < resolution.length; i++) {
+            document.getElementById("resolution1").innerHTML +=
+                "<td>" + resolution[1][i] + "</td>";
+        }
+        for (var i = 0; i < resolution.length; i++) {
+            document.getElementById("resolution2").innerHTML +=
+                "<td>" + resolution[2][i] + "</td>";
+        }
+        for (var i = 0; i < resolution.length; i++) {
+            document.getElementById("resolution3").innerHTML +=
+                "<td>" + resolution[3][i] + "</td>";
+        }
+        for (var i = 0; i < resolution.length; i++) {
+            document.getElementById("resolution4").innerHTML +=
+                "<td>" + resolution[4][i] + "</td>";
+        }
+        for (var i = 0; i < resolution.length; i++) {
+            document.getElementById("resolution5").innerHTML +=
+                "<td>" + resolution[5][i] + "</td>";
+        }
+        for (var i = 0; i < resolution.length; i++) {
+            document.getElementById("resolution6").innerHTML +=
+                "<td>" + resolution[6][i] + "</td>";
+        }
+        for (var i = 0; i < resolution.length; i++) {
+            document.getElementById("resolution7").innerHTML +=
+                "<td>" + resolution[7][i] + "</td>";
+        }
+    });
