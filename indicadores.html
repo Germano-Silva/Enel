@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indicadores.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+<div class="card">
+    <div class="card">
+      <h2>TMA Geral</h2>
+      <p id="media"></p>
+    </div>
+  <div class="card">
+      <div>
+        <h3>Português</h3>
+        <p id="pt"></p>
+        <h3>Espanhol</h3>
+        <p id="es"></p>
+      </div>
+  </div>
+</div>
+
+<h1>Tabelas dos indicadores Enel</h1>
+<div class="card">
+    <h2>Ligações</h2>
+  <table>
+    <tr id="paises"></tr>
+    <tr id="linha1"></tr>
+    <tr id="linha2"></tr>
+    <tr id="linha3"></tr>
+    <tr id="linha4"></tr>
+    <tr id="linha5"></tr>
+    <tr id="linha6"></tr>
+  </table>
+    
+</div>
+<div class="card">
+    <h2>FCR (First Call Resolution)</h2>
+    <table>
+    <tr id="meses"></tr>
+    <tr id="resolution1"></tr>
+    <tr id="resolution2"></tr>
+    <tr id="resolution3"></tr>
+    <tr id="resolution4"></tr>
+    <tr id="resolution5"></tr>
+    <tr id="resolution6"></tr>
+    <tr id="resolution7"></tr>
+  </table>
+</div>
+
+<div class="card">
+    <div class="card-header">
+      <h2>TMA geral por mês</h2>
+    </div>
+    <div class="card-body">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>TMA por mês Português</h2>
+    </div>
+    <div class="card-body">
+      <canvas id="myChart01"></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>TMA por mês Espanhol</h2>
+    </div>
+    <div class="card-body">
+      <canvas id="myChart02"></canvas>
+    </div>
+  </div>
+    <script src="https://kit.fontawesome.com/669b1e7584.js" crossorigin="anonymous"></script>
+    <script src="indicadores.js"></script>
+  </body>
+</html>
