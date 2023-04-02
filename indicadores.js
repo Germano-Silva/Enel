@@ -144,71 +144,77 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQDrMhGzfj_Bja0Z-o68AgF2U
     });
 
 
-let resolution = [];
+    let resolution = [];
 
-fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQDrMhGzfj_Bja0Z-o68AgF2U_1bSum06dUcwmnnTovwQhLkI7JBf1O56GU_fpUl-Bb55sbbV61Mw2o/pub?gid=381885766&single=true&output=tsv')
-    .then((response) => response.text())
-    .then((data) => {
-        const rows = data.split("\n");
-        rows.forEach((row) => {
-            const cells = row.split("\t");
-            resolution.push(cells);
+    fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQDrMhGzfj_Bja0Z-o68AgF2U_1bSum06dUcwmnnTovwQhLkI7JBf1O56GU_fpUl-Bb55sbbV61Mw2o/pub?gid=381885766&single=true&output=tsv')
+        .then((response) => response.text())
+        .then((data) => {
+            const rows = data.split("\n");
+            rows.forEach((row) => {
+                const cells = row.split("\t");
+                resolution.push(cells);
+            });
+            for (var i = 0; i < resolution.length; i++) {
+                document.getElementById("meses").innerHTML +=
+                    "<th>" + resolution[0][i] + "</th>";
+            }
+            for (var i = 1; i < resolution.length; i++) {
+              const valor = parseFloat(resolution[1][i].replace(',', '.').replace('%',''));
+              const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
+    
+              document.getElementById("resolution1").innerHTML +=
+                  "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + "% </td>";
+            }
+    
+            for (var i = 1; i < resolution.length; i++) {
+              const valor = parseFloat(resolution[2][i].replace(',', '.').replace('%',''));
+              const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
+    
+              document.getElementById("resolution2").innerHTML +=
+                  "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + "% </td>";
+            }
+    
+            for (var i = 1; i < resolution.length; i++) {
+              const valor = parseFloat(resolution[3][i].replace(',', '.').replace('%',''));
+              const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
+    
+              document.getElementById("resolution3").innerHTML +=
+                  "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
+            }
+    
+            for (var i = 1; i < resolution.length; i++) {
+              const valor = parseFloat(resolution[4][i].replace(',', '.').replace('%',''));
+              const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
+    
+              document.getElementById("resolution4").innerHTML +=
+                  "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
+            }
+     
+            for (var i = 1; i < resolution.length; i++) {
+              const valor = parseFloat(resolution[5][i].replace(',', '.').replace('%',''));
+              const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
+    
+              document.getElementById("resolution5").innerHTML +=
+                  "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
+            }
+    
+            for (var i = 1; i < resolution.length; i++) {
+              const valor = parseFloat(resolution[6][i].replace(',', '.').replace('%',''));
+              const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
+    
+              document.getElementById("resolution6").innerHTML +=
+                  "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
+            }
+    
+            for (var i = 1; i < resolution.length; i++) {
+              const valor = parseFloat(resolution[7][i].replace(',', '.').replace('%',''));
+              const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
+    
+              document.getElementById("resolution7").innerHTML +=
+                  "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
+            }
+    
         });
-        for (var i = 0; i < resolution.length; i++) {
-            document.getElementById("meses").innerHTML +=
-                "<th>" + resolution[0][i] + "</th>";
-        }
-        for (var i = 0; i < resolution.length; i++) {
-          const valor = parseFloat(resolution[1][i+1].replace(',', '.').replace('%',''));
-          const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
-
-          document.getElementById("resolution1").innerHTML +=
-              "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
-        }
-        for (var i = 0; i < resolution.length; i++) {
-          const valor = parseFloat(resolution[2][i+1].replace(',', '.').replace('%',''));
-          const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
-
-          document.getElementById("resolution2").innerHTML +=
-              "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
-        }
-        for (var i = 0; i < resolution.length; i++) {
-          const valor = parseFloat(resolution[3][i+1].replace(',', '.').replace('%',''));
-          const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
-
-          document.getElementById("resolution3").innerHTML +=
-              "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
-        }
-        for (var i = 0; i < resolution.length; i++) {
-          const valor = parseFloat(resolution[4][i+1].replace(',', '.').replace('%',''));
-          const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
-
-          document.getElementById("resolution4").innerHTML +=
-              "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
-        }
-        for (var i = 0; i < resolution.length; i++) {
-          const valor = parseFloat(resolution[5][i+1].replace(',', '.').replace('%',''));
-          const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
-
-          document.getElementById("resolution5").innerHTML +=
-              "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
-        }
-        for (var i = 0; i < resolution.length; i++) {
-          const valor = parseFloat(resolution[6][i+1].replace(',', '.').replace('%',''));
-          const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
-
-          document.getElementById("resolution6").innerHTML +=
-              "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
-        }
-        for (var i = 0; i < resolution.length; i++) {
-          const valor = parseFloat(resolution[7][i+1].replace(',', '.').replace('%',''));
-          const cor = isNaN(valor) ? "#ffffff" : valor <= 75.00 ? "#EF2E04" : valor > 75.00 && valor < 85.00 ? "#0759F8" : "#09915A";
-
-          document.getElementById("resolution7").innerHTML +=
-              "<td style='color: " + cor + "'>" + (isNaN(valor) ? "" : valor.toFixed(2)) + " % </td>";
-        }
-
-    });
 
 
 
