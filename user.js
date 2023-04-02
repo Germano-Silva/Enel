@@ -25,6 +25,7 @@ const email = localStorage.getItem('user');
 // Obtém os dados da planilha
 const url2 = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDrMhGzfj_Bja0Z-o68AgF2U_1bSum06dUcwmnnTovwQhLkI7JBf1O56GU_fpUl-Bb55sbbV61Mw2o/pubhtml?gid=767814670&single=true';
 
+
 fetch(url2)
   .then(response => response.text())
   .then(data => {
@@ -47,6 +48,7 @@ fetch(url2)
         tempoTotalLigacoesSaintes.push(colunas[5].textContent);
       }
     }
+
 
     const valorMedioLigacoesAtendidas = ligacoesAtendidas.reduce((total, valor) => total + parseFloat(valor), 0) / ligacoesAtendidas.length;
     const valorElementLigacoesAtendidas = document.querySelector('.ligacoes-valor');
@@ -146,7 +148,7 @@ fetch(url3)
 
   });
 
-//=============================================================================================
+
 
 
 //Grafico TMA
